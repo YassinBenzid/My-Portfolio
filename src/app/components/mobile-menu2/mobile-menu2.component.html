@@ -1,0 +1,89 @@
+<div class="mobile-header mobile-haeder1 d-block d-lg-none">
+    <div class="container-fluid">
+      <div class="col-12">
+        <div class="mobile-header-elements">
+          <div class="mobile-logo">
+            <a routerLink="/" class="brand-block mobile-brand mobile-brand-inline">
+              <span class="brand-line">Yassine Benzid | Full Stack Developer</span>
+            </a>
+          </div>
+          <div class="mobile-nav-icon dots-menu" (click)="toggleMobileMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mobile-sidebar mobile-sidebar1" [class.mobile-menu-active]="isMobileMenuActive">
+    <div class="logosicon-area">
+      <div class="logos">
+        <a routerLink="/" class="brand-block mobile-brand">
+          <span class="brand-name">Yassine Benzid</span>
+          <span class="brand-role">Full Stack Developer</span>
+        </a>
+      </div>
+      <div class="menu-close" (click)="closeMobileMenu()">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+     </div>
+    <div class="mobile-nav mobile-nav1">
+      <ul class="mobile-nav-list nav-list1">
+        <li><a class="cursor-pointer" *ngFor="let section of sections"  (click)="scrollToSection(section.id)"
+            [class.active]="currentSection === section.id">{{section.name}}</a></li>
+  
+      </ul>
+      <div class="allmobilesection">
+        <div class="btn-area">
+          <a href="https://wa.me/21697411310?text=Hi%20Yassine%2C%20I%20came%20from%20your%20portfolio."
+            target="_blank" rel="noopener noreferrer" class="download-btn1">Open WhatsApp</a>
+        </div>
+        <div class="single-footer">
+          <h3>Contact Me</h3>
+          <div class="footer4-contact-info">
+            <div class="contact-info-single">
+              <div class="contact-info-icon">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div class="contact-info-text">
+                <a href="https://wa.me/21697411310?text=Hi%20Yassine%2C%20I%20came%20from%20your%20portfolio."
+                  target="_blank" rel="noopener noreferrer">+216 97 411 310</a>
+              </div>
+            </div>
+            <div class="contact-info-single">
+              <div class="contact-info-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-info-text">
+                <a href="mailto:yassinbenzid@gmail.com">yassinbenzid&#64;gmail.com</a>
+              </div>
+            </div>
+            <div class="space20"></div>
+            <div class="single-footer">
+              <h3>LinkedIn</h3>
+              <div class="contact-info-single">
+                <div class="contact-info-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-info-text">
+                  <a href="https://www.linkedin.com/in/yassinbenzid/" target="_blank" rel="noopener noreferrer">linkedin.com/in/yassinbenzid</a>
+                </div>
+              </div>
+            </div>
+            <div class="space20"></div>
+            <div class="single-footer">
+              <h3>Stay in touch</h3>
+              <div class="social-links-mobile-menu">
+                <ul class="d-flex gap-1 flex-wrap align-items-center">
+                  <li><a href="https://www.linkedin.com/in/yassinbenzid/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                  <li><a href="mailto:yassinbenzid@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
+                  <li><a href="https://wa.me/21697411310?text=Hi%20Yassine%2C%20I%20came%20from%20your%20portfolio."
+                      target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>

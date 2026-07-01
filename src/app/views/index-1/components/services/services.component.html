@@ -1,0 +1,40 @@
+<div id="service">
+    <div class="service1-section-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="service-header-area">
+                        <div class="pbmit-heading-subheading animation-style2">
+                            <h4> <img src="assets/img/icons/star.svg" alt="">{{ t('services.eyebrow') }}</h4>
+                            <h2 class="pbmit-title">{{ t('services.title') }}</h2>
+                            <span class="designer pbmit-title">{{ t('services.accent') }}</span>
+                            <span class="marketer">{{ t('services.subtitle') }}
+                                <app-text-decoration />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="service-boxs-area">
+                        <img src="assets/img/icons/star2.svg" alt="" class="star2 keyframe5">
+                        <div class="service-author-box" *ngFor="let service of services" [ngClass]="service.boxClass"
+                            [attr.data-aos]="'zoom-out'" [attr.data-aos-duration]="service.aosDuration" [ngStyle]="{
+                              'background-image': 'url(' + service.bgImage + ')',
+                              'background-position': 'center',
+                              'background-repeat': 'no-repeat',
+                              'background-size': service.boxClass === 'box1' ? 'contain' : 'cover'
+                            }">
+                            <img *ngIf="service.polygon" src="assets/img/bg/polygon4.png" alt="" class="polygon2" />
+                            <div class="content">
+                                <div class="icons">
+                                    <img [src]="service.icon" alt="" />
+                                </div>
+                                <p>{{ t(service.titleKey) }}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

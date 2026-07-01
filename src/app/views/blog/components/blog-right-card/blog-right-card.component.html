@@ -1,0 +1,15 @@
+<div class="blog-details-boxarea">
+    <div class="img1">
+        <img [src]="blog.image" alt="">
+    </div>
+    <div class="content-area">
+        <div class="tags-area">
+            <a href="javascript:void(0);"><img src="assets/img/icons/calender.svg" alt="">{{blog.date}}</a>
+            <a href="javascript:void(0);"><img src="assets/img/icons/user.svg" alt="">{{blog.author}}</a>
+        </div>
+        <a routerLink="/blog-details">{{blog.title}}</a>
+        <p>{{blog.description}}</p>
+        <div class="space20"></div>
+        <a routerLink="/blog-details" class="readmore"><span>read More</span><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="portfolio-box-area click-here" [ngClass]="portfolioItem.boxClass">
+    <div class="images" data-aos="zoom-in" data-aos-duration="1000">
+        <img [src]="portfolioItem.image" [alt]="portfolioItem.title || 'Project preview'">
+    </div>
+    <div class="content-area" data-aos="flip-right" data-aos-duration="1000" [ngStyle]="{
+    'background-image': 'url(assets/img/bg/bg6.png)',
+    'background-position': 'center',
+    'background-repeat': 'no-repeat',
+    'background-size': 'cover'
+  }">
+        <h4>{{ portfolioItem.hashtag }}</h4>
+        <a href="javascript:void(0);" (click)="openModel()">{{ portfolioItem.title }}</a>
+    </div>
+</div>

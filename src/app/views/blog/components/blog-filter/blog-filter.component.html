@@ -1,0 +1,52 @@
+<div class="{{containerClass ? containerClass :''}}">
+    <div class="search-area">
+        <h3>Search</h3>
+        <div class="space24"></div>
+        <form action="#">
+            <input type="text" placeholder="Search.....">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+    <div class="space40"></div>
+    <div class="blog-categories">
+        <h3>Blog categories</h3>
+        <div class="space12"></div>
+        <ul>
+            @for (tag of portfolioTags; track $index) {
+                <li><a href="javascript:void(0);"><span>{{tag}}</span> <span><i class="fa-solid fa-angle-right"></i></span></a></li>
+            }
+        </ul>
+    </div>
+    <div class="space40"></div>
+    <div class="tags-area">
+        <h3>Portfolio tags</h3>
+        <div class="space12"></div>
+        <ul>
+            <li><a href="javascript:void(0);">#product design</a></li>
+            <li><a href="javascript:void(0);">#paper design</a></li>
+        </ul>
+        <ul>
+            <li><a href="javascript:void(0);">#product design</a></li>
+            <li><a href="javascript:void(0);">#ui/ux design</a></li>
+        </ul>
+        <ul>
+            <li><a href="javascript:void(0);">#design & branding</a></li>
+            <li><a href="javascript:void(0);">#creative</a></li>
+        </ul>
+
+        <ul>
+            <li><a href="javascript:void(0);">#mockup design</a></li>
+            <li><a href="javascript:void(0);">#cover design</a></li>
+        </ul>
+    </div>
+    <div class="space40"></div>
+    <div class="design-box">
+        <h3>UI/UX Design?</h3>
+        <div class="space32"></div>
+        <div class="btn-area">
+            <a href="javascript:void(0);">
+                <span><i class="fa-solid fa-arrow-right"></i> <br> Let’s Talk</span>
+            </a>
+        </div>
+    </div>
+</div>

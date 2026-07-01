@@ -1,0 +1,98 @@
+<div id="contact" class="{{class ? class : 'contact-section-area' }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact-header-area">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="contact-from-area" data-aos="flip-right" data-aos-duration="1000">
+                                <h3>Open WhatsApp</h3>
+                                <p>Use WhatsApp for the fastest response, or reach me by email and LinkedIn.</p>
+                                <div class="btn-area text-end" data-aos="fade-up" data-aos-duration="1200">
+                                    <a href="https://wa.me/21697411310?text=Hi%20Yassine%2C%20I%20came%20from%20your%20portfolio."
+                                        target="_blank" rel="noopener noreferrer" class="download-btn1">Open WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="contact-text-area">
+                                <div class="pbmit-heading-subheading animation-style2">
+                                    <h4> <img src="assets/img/icons/star3.png" alt="">Contact Me</h4>
+                                    <h2 class="pbmit-title">Let's Build <span class="designer">Something</span></h2><span
+                                        class="marketer">Together
+                                        <app-text-decoration-2 />
+                                    </span>
+                                </div>
+                                <p data-aos="fade-up" data-aos-duration="800">If you need a full stack software engineer for Angular, NestJS, TypeScript, APIs, microservices, or AI-powered products, reach out on WhatsApp, email, or LinkedIn.</p>
+                                <div class="contact-info-area">
+                                    <div class="info-boxarea" data-aos="zoom-out" data-aos-duration="1000">
+                                        <div class="icons">
+                                            <img src="assets/img/icons/phone2.svg" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <h5>WhatsApp</h5>
+                                            <a href="https://wa.me/21697411310?text=Hi%20Yassine%2C%20I%20came%20from%20your%20portfolio."
+                                                target="_blank" rel="noopener noreferrer">+216 97 411 310</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-boxarea" data-aos="fade-up" data-aos-duration="1100">
+                                        <div class="icons">
+                                            <img src="assets/img/icons/email2.svg" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <h5>Email</h5>
+                                            <a href="mailto:yassinbenzid@gmail.com">yassinbenzid&#64;gmail.com</a>
+                                        </div>
+                                    </div>
+                                    <div class="info-boxarea" data-aos="fade-up" data-aos-duration="1200">
+                                        <div class="icons">
+                                            <img src="assets/img/icons/linkedin.svg" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <h5>LinkedIn</h5>
+                                            <a href="https://www.linkedin.com/in/yassinbenzid/" target="_blank"
+                                                rel="noopener noreferrer">linkedin.com/in/yassinbenzid</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-area" data-aos="fade-up" data-aos-duration="1200">
+                                    <a href="assets/img/cv/cv.pdf" download="" class="download-btn1"><img
+                                            src="assets/img/icons/download.svg" alt="">Download CV</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="footer-section-area" data-aos="fade-up" data-aos-duration="1200"
+                                style="background-image: url(assets/img/bg/footer-bg2.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                                <div class="footer-form-area text-center pbmit-heading-subheading animation-style2">
+                                    <h2 class="pbmit-title">Stay in touch</h2>
+                                    <p>Use WhatsApp for the fastest response, or reach me by email and LinkedIn.</p>
+                                    <div class="btn-area">
+                                        <a href="https://wa.me/21697411310?text=Hi%20Yassine%2C%20I%20came%20from%20your%20portfolio."
+                                            target="_blank" rel="noopener noreferrer" class="download-btn1">Chat on WhatsApp</a>
+                                    </div>
+                                </div>
+                                <div class="social-links-area">
+                                    <ul>
+                                        <li *ngFor="let item of socialLinks" [attr.data-aos]="'zoom-out'"
+                                            [attr.data-aos-duration]="item.aosDelay">
+                                            <a [href]="item.href" [target]="item.href.startsWith('http') ? '_blank' : null"
+                                                [rel]="item.href.startsWith('http') ? 'noopener noreferrer' : null">
+                                                <img [src]="item.icon" [alt]="item.name"> {{ item.name }}
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="copyright-pera">
+                                    <p>© {{currentYear}} Yassine Benzid. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div id="skills">
+    <div class="skills-section-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="skills-header-area" data-aos="fade-left" data-aos-duration="800">
+                        <div class="pbmit-heading-subheading animation-style2">
+                            <h4> <img src="assets/img/icons/star.svg" alt="">{{ t('skills.eyebrow') }}</h4>
+                            <h2 class="pbmit-title">{{ t('skills.titlePrefix') }} <span class="designer">{{ t('skills.titleAccent') }}</span></h2>
+                            <span class="marketer">{{ t('skills.subtitle') }}
+                                <app-text-decoration />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="all-boxes-area">
+
+                        <div class="skils-auhtor-area" *ngFor="let column of skills" [attr.data-aos]="column.aos"
+                            [attr.data-aos-duration]="column.aosDuration">
+                            <div class="skills-all-boxarea" *ngFor="let skill of column.skillBoxes"
+                                [ngClass]="skill.boxClass" [attr.data-aos]="skill.aos || null"
+                                [attr.data-aos-duration]="skill.aosDuration || null">
+                                <div class="percent">
+                                    <p><span class="counter"><count-up [countUp]="skill.count"></count-up></span>%</p>
+                                </div>
+
+                                <img *ngIf="skill.polygon" src="assets/img/bg/polygon5.png" alt="" class="polygon2" />
+
+                                <img src="assets/img/bg/polygon-bg4.png" alt=""
+                                    [class]="skill.polygon ? 'polygon4':'polygon2'" />
+
+                                <div class="content">
+                                    <div class="icons">
+                                        <img [src]="skill.icon" alt="" />
+                                    </div>
+                                    <p>{{ t(skill.titleKey) }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

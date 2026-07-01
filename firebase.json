@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/yassine-benzid-portfolio/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+<h3>Comments (02)</h3>
+<div *ngFor="let comment of comments;let i=index;let isLast=last">
+    <div class="space40" *ngIf="!comment.isReply"></div>
+    <div [ngClass]="{'comments-box': true, 'margin-left': comment.isReply}">
+      <div class="comments-boxarea">
+        <div class="comments-images">
+          <div class="img1">
+            <img [src]="comment.image" alt="{{ comment.author }}">
+          </div>
+          <div class="text">
+            <a href="javascript:void(0);">{{ comment.author }}</a>
+            <p>{{ comment.date }}</p>
+          </div>
+        </div>
+        <div class="reply">
+          <a href=""><i class="fa-solid fa-reply"></i> Reply</a>
+        </div>
+      </div>
+      <div class="space24"></div>
+      <p>{{ comment.content }}</p>
+    </div>
+    <div *ngIf="!isLast" class="space32"></div>
+  </div>
+  
+<div class="space60"></div>
+<div class="contact-boxarea">
+    <h3>Leave A Message</h3>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="0cd32fff-eda2-4da3-be43-37d47fbb396b">
+
+        <div class="input">
+            <input type="text" placeholder="Full Name">
+        </div>
+        <div class="input">
+            <input type="number" placeholder="Phone Number" required>
+        </div>
+        <div class="input">
+            <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="input">
+            <select #countrySelect name="country" id="country" class="country-area mt-0 nice-select6">
+                <option value="1" data-display="Service Type">Service Type</option>
+                <option *ngFor="let option of countries" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+        <div class="input">
+            <textarea placeholder="Message" required></textarea>
+        </div>
+        <div class="btn-area text-end" data-aos="fade-up" data-aos-duration="1200">
+            <button type="submit" class="download-btn">submit now</button>
+        </div>
+    </form>
+</div>

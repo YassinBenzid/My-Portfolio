@@ -1,0 +1,76 @@
+@use '../utils/' as *;
+
+.sp1{
+     padding: 100px 0;
+     @media #{$xs} {
+          padding: 50px 0 50px;
+     }
+     @media #{$md} {
+          padding: 50px 0 50px;
+     }
+}
+.sp2{
+     padding: 100px 0 70px;
+     @media #{$xs} {
+          padding: 50px 0 20px;
+     }
+     @media #{$md} {
+          padding: 50px 0 20px;
+     }
+}
+.sp3{
+     padding: 100px 0 50px;
+}
+.sp4{
+     padding: 80px 0 80px;
+     @media #{$xs} {
+          padding: 40px 0 40px;
+     }
+     @media #{$md} {
+          padding: 40px 0 40px;
+     }
+}
+.sp5{
+     padding:70px 0 70px;
+     @media #{$xs} {
+          padding: 40px 0 40px;
+     }
+     @media #{$md} {
+          padding: 40px 0 40px;
+     }
+}
+.sp6{
+     padding:120px 0 120px;
+     @media #{$xs} {
+          padding: 60px 0 60px;
+     }
+     @media #{$md} {
+          padding: 60px 0 60px;
+     }
+}
+.space12 {
+     height: 12px;
+}
+.space20 {
+     height: 20px;
+}
+.space24 {
+     height: 24px;
+}
+.space16 {
+     height: 16px;
+}
+.space32 {
+     height: 32px;
+}
+.space40 {
+     height: 40px;
+}
+.space50 {
+     height: 50px;
+}
+.space60 {
+     height: 60px;
+}
+
+

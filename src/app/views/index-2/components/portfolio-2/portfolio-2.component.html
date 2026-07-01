@@ -1,0 +1,24 @@
+<div id="portfolio">
+    <div class="portfolio-section-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="portfolio-header-area">
+                        <div class="pbmit-heading-subheading animation-style2">
+                            <h4> <img src="assets/img/icons/star3.png" alt="">My Projects</h4>
+                            <h2 class="pbmit-title">Selected <span class="designer">Case Studies &</span></h2>
+                            <span class="marketer">Work
+                                <app-text-decoration-2 />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6" *ngFor="let item of portfolioList">
+                            <app-portfolio-card-2 [portfolioItem]="item" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
