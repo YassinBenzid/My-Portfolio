@@ -1,29 +1,44 @@
-import { Component, inject, type OnDestroy, type OnInit } from '@angular/core';
-import { BodyClassService } from '@app/services/body-class.service';
-import { About2Component } from "./components/about-2/about-2.component";
-import { Contact2Component } from "../../components/contact-2/contact-2.component";
-import { Home2Component } from "./components/home-2/home-2.component";
-import { MobileMenu2Component } from "../../components/mobile-menu2/mobile-menu2.component";
-import { Portfolio2Component } from "./components/portfolio-2/portfolio-2.component";
-import { Services2Component } from "./components/services-2/services-2.component";
-import { Sidebar2Component } from './components/sidebar-2/sidebar2.component';
-import { Skills2Component } from "./components/skills-2/skills-2.component";
-import { CustomModalComponent } from "../../components/custom-modal/custom-modal.component";
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LanguageService } from '@app/services/language.service';
 
 @Component({
   selector: 'app-index-2',
-  imports: [MobileMenu2Component, Sidebar2Component, Home2Component, About2Component, Services2Component, Skills2Component, Portfolio2Component, Contact2Component, CustomModalComponent],
+  imports: [CommonModule],
   templateUrl: './index-2.component.html',
-  styles: ``
+  styleUrl: './index-2.component.scss'
 })
-export class Index2Component implements OnInit,OnDestroy{
-    private bodyClassService= inject(BodyClassService)
-
-    ngOnInit(){
-        this.bodyClassService.add('homepage2-body');
-
-    }
-    ngOnDestroy(){
-        this.bodyClassService.remove('homepage2-body');
-    }
+export class Index2Component {
+  readonly language = inject(LanguageService);
+  get fr(): boolean { return this.language.is('fr'); }
+  get projectDetails(): string[] {
+    return this.fr ? [
+      'Rôle : ingénieur backend. Conception de services NestJS pour les réservations, les plannings, les paiements et les utilisateurs ; intégration Python et Roboflow pour la détection des joueurs et du ballon.',
+      'Rôle : ingénieur full stack. Développement des annonces, de la messagerie, des contrats et des tableaux de bord, puis contribution à une architecture SaaS multi-tenant en marque blanche.',
+      'Rôle : ingénieur frontend. Création de workflows Angular pour les administrateurs, soumissionnaires et évaluateurs ; intégration des API, de JWT et des droits d’accès.',
+      'Une solution couvrant la réservation, le suivi des colis et les notifications pour les particuliers et les entreprises.',
+      'Une expérience multilingue de réservation de soins et de services de beauté en salon ou à domicile.',
+      'Des modèles et des outils de partage pour créer des invitations personnalisées adaptées aux événements importants.'
+    ] : [
+      'Role: backend engineer. Designed NestJS services for bookings, scheduling, payments and users; integrated Python and Roboflow for player and ball detection.',
+      'Role: full-stack engineer. Developed listings, messaging, contracts and dashboards, then helped evolve the product into a multi-tenant white-label SaaS.',
+      'Role: frontend engineer. Built Angular workflows for administrators, bidders and reviewers, integrating APIs, JWT and role-based access.',
+      'A solution covering shipment booking, package tracking and notifications for individuals and businesses.',
+      'A multilingual booking experience for beauty and wellness services at a salon or at home.',
+      'Templates and sharing tools for personalized invitations to important life events.'
+    ];
+  }
+  private projectCache: Partial<Record<'en' | 'fr', any[]>> = {};
+  get projects() {
+    const lang = this.fr ? 'fr' : 'en';
+    if (this.projectCache[lang]) return this.projectCache[lang]!;
+    return this.projectCache[lang] = [
+      { number: '01', category: this.fr ? 'SPORT · APPLICATION WEB & MOBILE' : 'SPORT · WEB & MOBILE APP', title: 'Padel', image: 'assets/img/projects/padel-live.png', description: this.fr ? 'Une expérience de padel réunissant réservation de terrains, analyse de matchs et boutique dans une application pensée pour les joueurs.' : 'A padel experience bringing court booking, match analysis and a shop together in an app designed for players.', stack: 'Ionic · NestJS · Python · Firebase', links: [{label: this.fr ? 'Site vitrine' : 'Landing page', url: 'https://padel-6beb1-landing.web.app/'}, {label: this.fr ? 'Application' : 'Live app', url: 'https://padel-6beb1-app.web.app/'}] },
+      { number: '02', category: this.fr ? 'MARCHÉ · SAAS MULTI-TENANT' : 'MARKETPLACE · MULTI-TENANT SAAS', title: 'Qartis / Qode', image: 'assets/img/projects/qode-live.png', description: this.fr ? 'Une plateforme de mise en relation devenue SaaS en marque blanche : annonces, messagerie, contrats et tableaux de bord.' : 'A marketplace developed into a white-label SaaS product, with listings, messaging, contracts and role-based dashboards.', stack: 'Angular · NestJS · TypeScript · Docker', links: [{label: 'Qartis', url: 'https://qartis.tn/'}, {label: 'Qode', url: 'https://qode.qa/'}] },
+      { number: '03', category: this.fr ? 'ENTREPRISE · GESTION DES APPELS D’OFFRES' : 'ENTERPRISE · TENDER MANAGEMENT', title: 'Darb', image: 'assets/img/projects/darb-live.png', description: this.fr ? 'Des interfaces et workflows pour les administrateurs, soumissionnaires et évaluateurs tout au long du cycle d’appel d’offres.' : 'Interfaces and workflows for administrators, bidders and reviewers across the tender lifecycle.', stack: 'Angular · TypeScript · Tailwind CSS · Docker', links: [{label: 'Darb', url: 'https://darb.qa/'}] },
+      { number: '04', category: this.fr ? 'LOGISTIQUE · APPLICATION MOBILE' : 'LOGISTICS · MOBILE APP', title: this.fr ? 'Livraison intelligente' : 'Smart delivery', image: 'assets/img/projects/tareesh-home-screen.png', description: this.fr ? 'Une plateforme de livraison pour réserver un envoi, suivre les colis et recevoir des notifications en temps réel.' : 'A delivery platform for booking shipments, tracking packages and receiving real-time updates.', stack: 'Angular · NestJS · Flutter · Firebase', links: [] },
+      { number: '05', category: this.fr ? 'BIEN-ÊTRE · APPLICATION MOBILE' : 'WELLNESS · MOBILE APP', title: this.fr ? 'Beauté & bien-être' : 'Beauty & wellness', image: 'assets/img/projects/beauty-home-page.png', description: this.fr ? 'Une application multilingue pour découvrir et réserver des services de beauté en salon ou à domicile.' : 'A multilingual app to discover and book beauty and wellness services at a salon or at home.', stack: 'Laravel · Flutter · Firebase', links: [] },
+      { number: '06', category: this.fr ? 'ÉVÉNEMENTIEL · APPLICATION MOBILE' : 'EVENTS · MOBILE APP', title: this.fr ? 'Invitations intelligentes' : 'Smart invitations', image: 'assets/img/projects/invitation-home.png', description: this.fr ? 'Des invitations numériques personnalisées pour les moments importants, avec modèles et partage simplifié.' : 'Personalized digital invitations for important life events, with templates and streamlined sharing.', stack: 'Angular · Spring Boot · Flutter · Firebase', links: [] }
+    ];
+  }
 }
