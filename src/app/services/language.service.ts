@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 
-export type AppLanguage = 'en' | 'fr';
+export type AppLanguage = 'en' | 'fr' | 'ar';
 
 const TRANSLATIONS = {
     en: {
@@ -289,7 +289,7 @@ export class LanguageService {
 
     t(path: string): string {
         const current = this.lang();
-        const value = path.split('.').reduce<any>((acc, key) => acc?.[key], TRANSLATIONS[current]);
+        const value = path.split('.').reduce<any>((acc, key) => acc?.[key], TRANSLATIONS[current === 'ar' ? 'en' : current]);
         return typeof value === 'string' ? value : path;
     }
 
@@ -298,12 +298,18 @@ export class LanguageService {
             return 'en';
         }
         const stored = localStorage.getItem('portfolio-lang');
-        return stored === 'fr' ? 'fr' : 'en';
+        if (stored === 'en' || stored === 'fr' || stored === 'ar') return stored;
+        const preferred = navigator.language.toLowerCase();
+        const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const middleEast = new Set(['Asia/Riyadh', 'Asia/Qatar', 'Asia/Bahrain', 'Asia/Kuwait', 'Asia/Dubai', 'Asia/Muscat', 'Asia/Baghdad', 'Asia/Amman', 'Asia/Beirut', 'Asia/Damascus', 'Asia/Jerusalem', 'Asia/Gaza', 'Asia/Hebron', 'Asia/Aden']);
+        if (preferred.startsWith('ar') || middleEast.has(zone)) return 'ar';
+        return preferred.startsWith('fr') || zone === 'Europe/Paris' ? 'fr' : 'en';
     }
 
     private applyLanguage(lang: AppLanguage) {
         if (typeof document !== 'undefined') {
             document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         }
     }
 }
